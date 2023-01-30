@@ -18,10 +18,9 @@ public class ProductoController {
     @Autowired
     ProductoService productoService;
 
-    @GetMapping(value ="/Saludo")
-    public String getAll() {
-        return "saludo";
-    }
+    @GetMapping(value ="/getAll", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<ProductoResponseDTO> getAll() {
+        return productoService.obtenerTodos();
 
     @GetMapping("/getByStore/{id}")
     public ResponseEntity getByStore(@PathVariable("id") Integer id) {
