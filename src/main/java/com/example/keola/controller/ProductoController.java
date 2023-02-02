@@ -24,6 +24,12 @@ public class ProductoController {
 
 
     }
+    @GetMapping(value ="/Saludo")
+    public String Saludo() {
+        return "Saludo";
+
+
+    }
 
 
 }
